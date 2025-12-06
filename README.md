@@ -80,7 +80,6 @@ idf.py -p COM3 flash monitor
 Key Bluetooth configurations in `sdkconfig.defaults`:
 ```
 CONFIG_BT_ENABLED=y
-CONFIG_BT_BLUEDROID_ENABLED=y
 CONFIG_BT_BLE_42_FEATURES_SUPPORTED=y
 ```
 
