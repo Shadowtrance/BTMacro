@@ -3,7 +3,7 @@
 #include "esp_lcd_panel_ops.h"
 #include "esp_lcd_panel_rgb.h"
 #include "esp_lcd_touch_gt911.h"
-#include "driver/i2c_master.h"
+#include "driver/i2c.h"
 #include "driver/gpio.h"
 #include "driver/ledc.h"
 #include "esp_log.h"
@@ -94,8 +94,6 @@ static void suntonEsp32s3BacklightInit(void)
 
 void suntonEsp32s3SetBrightness(uint8_t brightness)
 {
-    //ESP_LOGI(TAG, "Setting backlight brightness to %d", brightness);
-
     ledc_set_duty(LEDC_LOW_SPEED_MODE, BACKLIGHT_CHANNEL, brightness);
     ledc_update_duty(LEDC_LOW_SPEED_MODE, BACKLIGHT_CHANNEL);
 }
@@ -176,7 +174,6 @@ static void touchpadRead(lv_indev_t *indev, lv_indev_data_t *data)
         data->point.x = touchData[0].x;
         data->point.y = touchData[0].y;
         data->state = LV_INDEV_STATE_PRESSED;
-        esp_rom_printf("Touchpad pressed: x=%d, y=%d\n", data->point.x, data->point.y);
     }
     else
     {
@@ -187,19 +184,17 @@ static void touchpadRead(lv_indev_t *indev, lv_indev_data_t *data)
 lv_display_t *suntonEsp32s3LcdInit(void)
 {
     ESP_LOGI(TAG, "I2C Init");
-    i2c_master_bus_handle_t touchI2cBusHandle = NULL;
-    const i2c_master_bus_config_t touchI2cBusConfig = {
-        .i2c_port = -1,
+    const i2c_config_t touchI2cBusConfig = {
+        .mode = I2C_MODE_MASTER,
         .sda_io_num = SUNTON_ESP32_TOUCH_PIN_SDA,
         .scl_io_num = SUNTON_ESP32_TOUCH_PIN_SCL,
-        .clk_source = I2C_CLK_SRC_DEFAULT,
-        .glitch_ignore_cnt = 7,
-        .intr_priority = 0,
-        .flags = {
-            .enable_internal_pullup = 1,
-        },
+        .sda_pullup_en = true,
+        .scl_pullup_en = true,
+        .master.clk_speed = SUNTON_ESP32_TOUCH_FREQ_HZ
     };
-    ESP_ERROR_CHECK(i2c_new_master_bus(&touchI2cBusConfig, &touchI2cBusHandle));
+
+    ESP_ERROR_CHECK(i2c_param_config(I2C_NUM_0, &touchI2cBusConfig));
+    ESP_ERROR_CHECK(i2c_driver_install(I2C_NUM_0, touchI2cBusConfig.mode, 0, 0, 0));
 
     // create lcd panel
     ESP_LOGI(TAG, "LCD Init");
@@ -224,10 +219,9 @@ lv_display_t *suntonEsp32s3LcdInit(void)
         .flags = {
             .dc_low_on_data = 0,
             .disable_control_phase = 1,
-        },
-        .scl_speed_hz = SUNTON_ESP32_TOUCH_FREQ_HZ,
+        }
     };
-    ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(touchI2cBusHandle, &gt911TouchIoConfig, &gt911TouchIoHandle));
+    ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c((esp_lcd_i2c_bus_handle_t)I2C_NUM_0, &gt911TouchIoConfig, &gt911TouchIoHandle));
 
     esp_lcd_touch_handle_t touchHandle = NULL;
     esp_lcd_touch_io_gt911_config_t tp_gt911_config = {

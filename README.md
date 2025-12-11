@@ -1,6 +1,6 @@
 # BTMacro - Bluetooth HID Macro Keyboard
 
-A Bluetooth Low Energy (BLE) HID keyboard implementation for ESP32-S3 with touchscreen interface. Features 12 programmable buttons for media controls and keyboard shortcuts.
+A Bluetooth Low Energy (BLE) HID keyboard implementation for ESP32-S3 with touchscreen interface. Features 15 programmable buttons for media controls and keyboard shortcuts.
 
 ## Hardware
 
@@ -14,30 +14,33 @@ A Bluetooth Low Energy (BLE) HID keyboard implementation for ESP32-S3 with touch
 - ✅ Keyboard shortcuts (Win+Tab, Win+D, Ctrl+Shift+Esc, Alt+F4)
 - ✅ Media key support (Play/Pause, Volume, Track control)
 - ✅ Number key support (1-6)
-- ✅ 12-button touchscreen grid interface
+- ✅ 15-button touchscreen grid interface
 - ✅ Secure pairing with bonding support
 - ✅ 100% battery level reporting
 - ✅ Works with Windows and Android
 
 ## Button Mappings
 
-### Row 1 - Media Controls
-- **Button 0**: Previous Track
-- **Button 1**: Play/Pause  
-- **Button 2**: Next Track
-- **Button 3**: Mute
+### Row 1
+- **Button 1**: Previous Track
+- **Button 2**: Play/Pause
+- **Button 3**: Next Track
+- **Button 4**: Mute
+- **Button 5**: Number 0
 
-### Row 2 - Volume & Numbers
-- **Button 4**: Volume Up
-- **Button 5**: Volume Down
-- **Button 6**: Number 1
-- **Button 7**: Number 2
+### Row 2
+- **Button 6**: Volume Up
+- **Button 7**: Volume Down
+- **Button 8**: Number 1
+- **Button 9**: Number 2
+- **Button 10**: Number 0
 
-### Row 3 - Number Keys
-- **Button 8**: Number 3
-- **Button 9**: Number 4
-- **Button 10**: Number 5
-- **Button 11**: Number 6
+### Row 3
+- **Button 11**: Number 3
+- **Button 12**: Number 4
+- **Button 13**: Number 5
+- **Button 14**: Number 6
+- **Button 15**: Number 0
 
 ## Prerequisites
 

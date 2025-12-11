@@ -32,44 +32,59 @@ void MyShortcut::Action(){
         hid_keyboard_media(HID_CONSUMER_MUTE);
       break;
   
-       // Volume Up
+      //Test
       case 4:  
+        hid_keyboard_press(0, HID_KEY_0);
+      break;
+
+       // Volume Up
+      case 5:  
         hid_keyboard_media(HID_CONSUMER_VOLUME_UP);
       break;
   
       //Volume Down
-      case 5:  
+      case 6:  
         hid_keyboard_media(HID_CONSUMER_VOLUME_DOWN);
       break;
   
       // 1
-      case 6:  
+      case 7:  
         hid_keyboard_press(0, HID_KEY_1);
       break;
   
       // 2
-      case 7:  
+      case 8:  
         hid_keyboard_press(0, HID_KEY_2);
       break;
 
+      //Test
+      case 9:  
+        hid_keyboard_press(0, HID_KEY_0);
+      break;
+
       // 3
-      case 8:  
+      case 10:  
         hid_keyboard_press(0, HID_KEY_3);
       break;
 
       // 4
-      case 9:  
+      case 11:  
         hid_keyboard_press(0, HID_KEY_4);
       break;
 
       // 5
-      case 10:  
+      case 12:  
         hid_keyboard_press(0, HID_KEY_5);
       break;
 
       // 6
-      case 11:  
+      case 13:  
         hid_keyboard_press(0, HID_KEY_6);
+      break;
+
+      //Test
+      case 14:  
+        hid_keyboard_press(0, HID_KEY_0);
       break;
   
       default:
