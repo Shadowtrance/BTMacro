@@ -182,7 +182,6 @@ BTMacro/
 ├── CMakeLists.txt
 ├── partitions.csv               # Partition table
 ├── button_map.json              # Default UI grid config
-├── button_map4.json             # Alternative grid config
 ├── shortcuts.json               # Default shortcuts config
 └── README.md
 ```
