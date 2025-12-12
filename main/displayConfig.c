@@ -11,7 +11,7 @@
 
 #include "displayConfig.h"
 
-#define TAG "[DISPLAY]"
+static const char *TAG = "[DISPLAY]";
 
 const esp_lcd_rgb_panel_config_t panelConfig = {
     .clk_src = LCD_CLK_SRC_PLL160M,

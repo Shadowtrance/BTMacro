@@ -9,13 +9,13 @@
 #include "freertos/task.h"
 #include <string.h>
 
-static const char *TAG = "HID_KEYBOARD";
+static const char *TAG = "[HID KEYBOARD]";
 static bool s_connected = false;
 
 static esp_ble_adv_data_t hidd_adv_data = {
     .set_scan_rsp = false,
     .include_name = true,
-    .include_txpower = false,  // Disable to save space
+    .include_txpower = false,
     .min_interval = 0x0020,
     .max_interval = 0x0040,
     .appearance = 0x03C1,  // Keyboard
@@ -61,6 +61,9 @@ static void hidd_event_callback(esp_hidd_cb_event_t event, esp_hidd_cb_param_t *
         case ESP_HIDD_EVENT_BLE_DISCONNECT: {
             ESP_LOGI(TAG, "Device disconnected");
             s_connected = false;
+            ESP_LOGI(TAG, "Waiting 1 second before re-advertising");
+            vTaskDelay(pdMS_TO_TICKS(1000));
+            ESP_LOGI(TAG, "Restarting advertising");
             esp_ble_gap_start_advertising(&hidd_adv_params);
             break;
         }
@@ -82,15 +85,17 @@ static void gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param
     switch (event) {
     case ESP_GAP_BLE_ADV_DATA_SET_COMPLETE_EVT:
         esp_ble_gap_start_advertising(&hidd_adv_params);
+        ESP_LOGI(TAG, "Advertising started");
         break;
     case ESP_GAP_BLE_SEC_REQ_EVT:
+        ESP_LOGI(TAG, "Security request received");
         esp_ble_gap_security_rsp(param->ble_security.ble_req.bd_addr, true);
         break;
     case ESP_GAP_BLE_AUTH_CMPL_EVT:
         if (param->ble_security.auth_cmpl.success) {
             ESP_LOGI(TAG, "Authentication complete, bonded");
         } else {
-            ESP_LOGE(TAG, "Authentication failed, status=%d", param->ble_security.auth_cmpl.fail_reason);
+            ESP_LOGE(TAG, "Authentication failed, status=%d, reason=%d", param->ble_security.auth_cmpl.success, param->ble_security.auth_cmpl.fail_reason);
         }
         break;
     default:

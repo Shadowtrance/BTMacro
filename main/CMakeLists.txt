@@ -6,6 +6,11 @@ idf_component_register(SRCS "mainApp.cpp"
                             "hidDev.c"
                             "myShortcut.cpp"
                             "displayConfig.c"
+                            "helpers.cpp"
+                            "sdCard.cpp"
+                            "msgQueue.cpp"
+                            "ui.cpp"
+                            "hidCodes.cpp"
                     INCLUDE_DIRS ".")
 
 target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-unused-const-variable)

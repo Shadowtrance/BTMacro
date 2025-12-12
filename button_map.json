@@ -1,0 +1,19 @@
+{
+    "buttons": [
+        {"id": 0, "label": "\\xEF\\x81\\x88"},
+        {"id": 1, "label": "\\xEF\\x81\\x8B"},
+        {"id": 2, "label": "\\xEF\\x81\\x91"},
+        {"id": 3, "label": "\\xEF\\x80\\xA6"},
+        {"id": 4, "label": "\\xEF\\x84\\x9C"},
+        {"id": 5, "label": "\\xEF\\x81\\xA7"},
+        {"id": 6, "label": "\\xEF\\x81\\xA8"},
+        {"id": 7, "label": "1"},
+        {"id": 8, "label": "2"},
+        {"id": 9, "label": "\\xEF\\x84\\x9C"},
+        {"id": 10, "label": "Hello"},
+        {"id": 11, "label": "World"},
+        {"id": 12, "label": "5"},
+        {"id": 13, "label": "6"},
+        {"id": 14, "label": "\\xEF\\x84\\x9C"}
+    ]
+}

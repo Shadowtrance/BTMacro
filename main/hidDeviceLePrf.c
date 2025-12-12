@@ -27,7 +27,7 @@ struct prf_char_pres_fmt
 static hid_report_map_t hid_rpt_map[HID_NUM_REPORTS];
 
 // HID Report Map characteristic value
-// Keyboard report descriptor (using format for Boot interface descriptor)
+// Keyboard report descriptor (extended to support F13-F24)
 static const uint8_t hidReportMap[] = {
     0x05, 0x01,  // Usage Page (Generic Desktop)
     0x09, 0x02,  // Usage (Mouse)
@@ -96,10 +96,10 @@ static const uint8_t hidReportMap[] = {
     0x95, 0x06,  //   Report Count (6)
     0x75, 0x08,  //   Report Size (8)
     0x15, 0x00,  //   Log Min (0)
-    0x25, 0x65,  //   Log Max (101)
+    0x25, 0x73,  //   Log Max (115) - Extended to F24
     0x05, 0x07,  //   Usage Pg (Key Codes)
     0x19, 0x00,  //   Usage Min (0)
-    0x29, 0x65,  //   Usage Max (101)
+    0x29, 0x73,  //   Usage Max (115) - Extended to F24
     0x81, 0x00,  //   Input: (Data, Array)
     //
     0xC0,        // End Collection

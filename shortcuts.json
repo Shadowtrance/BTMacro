@@ -1,0 +1,94 @@
+{
+    "shortcuts": [
+        {
+            "id": 0,
+            "actions": [
+                {"type": "media", "code": "HID_CONSUMER_SCAN_PREV_TRK"}
+            ]
+        },
+        {
+            "id": 1,
+            "actions": [
+                {"type": "media", "code": "HID_CONSUMER_PLAY_PAUSE"}
+            ]
+        },
+        {
+            "id": 2,
+            "actions": [
+                {"type": "media", "code": "HID_CONSUMER_SCAN_NEXT_TRK"}
+            ]
+        },
+        {
+            "id": 3,
+            "actions": [
+                {"type": "media", "code": "HID_CONSUMER_MUTE"}
+            ]
+        },
+        {
+            "id": 4,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_0"}
+            ]
+        },
+        {
+            "id": 5,
+            "actions": [
+                {"type": "media", "code": "HID_CONSUMER_VOLUME_UP"}
+            ]
+        },
+        {
+            "id": 6,
+            "actions": [
+                {"type": "media", "code": "HID_CONSUMER_VOLUME_DOWN"}
+            ]
+        },
+        {
+            "id": 7,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_1"}
+            ]
+        },
+        {
+            "id": 8,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_2"}
+            ]
+        },
+        {
+            "id": 9,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_0"}
+            ]
+        },
+        {
+            "id": 10,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_3"}
+            ]
+        },
+        {
+            "id": 11,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_4"}
+            ]
+        },
+        {
+            "id": 12,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_F16"}
+            ]
+        },
+        {
+            "id": 13,
+            "actions": [
+                {"type": "keyboard", "modifier": [], "key": "HID_KEY_F17"}
+            ]
+        },
+        {
+            "id": 14,
+            "actions": [
+                {"type": "keyboard", "modifier": ["MOD_LEFT_SHIFT", "MOD_LEFT_GUI"], "key": "HID_KEY_RIGHT_ARROW"}
+            ]
+        }
+    ]
+}

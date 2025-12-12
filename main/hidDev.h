@@ -87,6 +87,18 @@ extern "C" {
 #define HID_KEY_F10            67   // Keyboard F10
 #define HID_KEY_F11            68   // Keyboard F11
 #define HID_KEY_F12            69   // Keyboard F12
+#define HID_KEY_F13            0x68 // Keyboard F13
+#define HID_KEY_F14            0x69 // Keyboard F14
+#define HID_KEY_F15            0x6A // Keyboard F15
+#define HID_KEY_F16            0x6B // Keyboard F16
+#define HID_KEY_F17            0x6C // Keyboard F17
+#define HID_KEY_F18            0x6D // Keyboard F18
+#define HID_KEY_F19            0x6E // Keyboard F19
+#define HID_KEY_F20            0x6F // Keyboard F20
+#define HID_KEY_F21            0x70 // Keyboard F21
+#define HID_KEY_F22            0x71 // Keyboard F22
+#define HID_KEY_F23            0x72 // Keyboard F23
+#define HID_KEY_F24            0x73 // Keyboard F24
 #define HID_KEY_PRNT_SCREEN    70   // Keyboard Print Screen
 #define HID_KEY_SCROLL_LOCK    71   // Keyboard Scroll Lock
 #define HID_KEY_PAUSE          72   // Keyboard Pause
