@@ -70,7 +70,7 @@ extern "C" void app_main(void)
   // verify_filesystem();
 
     // Give LVGL task time to start before creating UI elements
-    vTaskDelay(pdMS_TO_TICKS(100));
+  vTaskDelay(pdMS_TO_TICKS(500));
     
     makeGrid();
 

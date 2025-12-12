@@ -42,9 +42,11 @@ void makeGrid()
   lv_style_set_text_font(&style_buttons, &lv_font_montserrat_48);
 
   lv_obj_t *btnm = lv_btnmatrix_create(lv_screen_active());
+  int width = lv_display_get_horizontal_resolution(NULL);
+  int height = lv_display_get_vertical_resolution(NULL);
+  lv_obj_set_size(btnm, width, height);
   lv_btnmatrix_set_map(btnm, dynamic_map);
   lv_obj_add_style(btnm, &style_buttons, LV_PART_ITEMS);
-  lv_obj_set_size(btnm, 800, 480);
   lv_obj_align(btnm, LV_ALIGN_BOTTOM_MID, 0, 0);
   lv_obj_set_style_bg_opa(btnm, 0, LV_PART_MAIN);
   lv_obj_set_style_border_width(btnm, 0, LV_PART_MAIN);
